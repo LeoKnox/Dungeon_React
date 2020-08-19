@@ -10,8 +10,8 @@ const warriorList = [
 function Players() {
     return (
         <div>
-            {warriorList.map(warrior => 
-                <div>
+            {warriorList.map(warrior =>
+                <div key={warrior.id}>
                     <h2>{warrior.name}</h2>
                     <p>Class: {warrior.class}</p>
                 </div>
