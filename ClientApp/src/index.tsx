@@ -16,21 +16,10 @@ const history = createBrowserHistory({ basename: baseUrl });
 // Get the application-wide store instance, prepopulating with state from the server where available.
 const store = configureStore(history);
 
-function Test(props: any) {
-    return (
-        <div>
-            <h1>yo! {props.first}!</h1>
-            <p>The second is the number {props.second}</p>
-            <p>This list has {Object.keys(props).length} {props.third}</p>
-        </div>
-    )
-}
-
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <App />
-            <Test first="Red" second={4} third="items" />
         </ConnectedRouter>
     </Provider>,
     document.getElementById('root'));

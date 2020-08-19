@@ -1,10 +1,18 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-const Home = () => (
+function Sword(props: any) {
+    return (
+        <h3>{props.sword}</h3>
+            )
+}
+
+const Home = (props: any) => (
   <div>
     <h1>Welcome to dungeon builder</h1>
-    <p>Star building and making dungeons here.</p>
+        <p>Star building and making dungeons here.</p>
+        <Sword sword="Strombringer" />
+        <Sword sword="Excalibur" />
   </div>
 );
 
