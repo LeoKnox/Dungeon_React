@@ -2,19 +2,21 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 const warriorList = [
-    "Aelien",
-    "Eveehi",
-    "Xingu"
+    { id: 1, name: "Aelien", class: "Fighter" },
+    { id: 2, name: "Eveehi", class: "Wizard" },
+    { id: 3, name: "Xingu", class: "Thief" }
 ];
 
-function Players(props: any) {
+function Players() {
     return (
-        <ul>
-        {
-            props.warriors.map((name: React.ReactNode) => (
-                <li>{name}</li>
-            ))}
-        </ul>   
+        <div>
+            {warriorList.map(warrior => 
+                <div>
+                    <h2>{warrior.name}</h2>
+                    <p>Class: {warrior.class}</p>
+                </div>
+            )}
+            </div>
          );
    }
    
@@ -22,8 +24,8 @@ function Players(props: any) {
   <div>
     <h1>Welcome to dungeon builder</h1>
         <p>Star building and making dungeons here.</p>
-        <Players warriors={warriorList} />
-  </div>
+           {Players()}
+    </div>
 );
 
 export default connect()(Home);
