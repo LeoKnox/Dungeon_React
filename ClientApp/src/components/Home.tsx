@@ -18,10 +18,10 @@ function Play() {
 }
    
    const Home = (props: any) => (
-       <React.Fragment>
+       <>
            <Play />
            <Build />
-       </React.Fragment>
+       </>
 );
 
 export default connect()(Home);
