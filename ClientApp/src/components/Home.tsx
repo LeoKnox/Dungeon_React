@@ -1,36 +1,20 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
-const [first, second, third] = [
-    "Aelien",
-    "Eveehi",
-    "Xingu"
-]
+import { useState } from 'react';
 
 function Build() {
+    const [status, setStatus] = useState("Open");
     return (
         <div>
-            <h3>Build dungeons</h3>
-            <p>{first}</p>
-            <p>{third}</p>
-            <p>{second}</p>
+            <h3>Build: {status} </h3>
+            <button onClick={() => setStatus("Closed")}>Close</button>
+            <button onClick={() => setStatus("Open")}>Open</button>
         </div>
          )
    }
 
-function Play() {
-    return (
-        <div>
-            <h3>Play dungeons</h3>
-        </div>
-        )
-}
-   
    const Home = (props: any) => (
-       <>
-           <Play />
-           <Build />
-       </>
+       <Build />
 );
 
 export default connect()(Home);
