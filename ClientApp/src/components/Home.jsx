@@ -3,14 +3,25 @@ import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
 function Build() {
-    const [checked, setChecked] = useState(true);
-    useEffect(() => { // not part of return or render can be used for alerts, console.logs, bebugging etc.
-        alert(`value of checked: ${checked.toString()}`);
-    });
+    const [val, setVal] = useState("");
+    const [val2, setVal2] = useState("");
+
+    useEffect(() => {
+        console.log(`field1: ${val}`)
+    }, [val])
+    useEffect(() => {
+        console.log(`field2: ${val2}`)
+    }, [val2])
     return (
         <>
-            <input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)}/>
-            {checked ? "checked" : "not checked"}
+            <label>
+                Catch Phrase:
+                <input value={val} onChange={e => setVal(e.target.value)} />
+            </label>
+            <label>
+                Kill Phrase:
+                <input value={val2} onChange={e => setVal2(e.target.value)} />
+            </label>
         </>
         )
    }
