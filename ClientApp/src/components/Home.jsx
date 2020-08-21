@@ -2,26 +2,15 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-function GH(login) {
-    const [data, setData] = useState(null);
-    useEffect(() => {
-        fetch(`https://ap.github.com/users/${login}`)
-            .then(res => res.json())
-            .then(setData)
-            .catch(console.error);
-    }, []);
-
-    if (data) {
-        return <div>{JSON.stringify(data)}</div>;
-    }
-    return null;
-}
-
 function Build() {
     const [checked, setChecked] = useState(false)
+    function toggle() {
+        setChecked(checked => !checked);
+    }
+
     return (
         <>
-            <input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />
+            <input type="checkbox" value={checked} onChange={toggle} />
             {checked ? " checked" : " not checked" }
         </>
         )
