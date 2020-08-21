@@ -18,7 +18,13 @@ function GH(login) {
 }
 
 function Build() {
-    return <GH login="moonhighway" />;
+    const [checked, setChecked] = useState(false)
+    return (
+        <>
+            <input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />
+            {checked ? " checked" : " not checked" }
+        </>
+        )
    }
 
    const Home = () => (
