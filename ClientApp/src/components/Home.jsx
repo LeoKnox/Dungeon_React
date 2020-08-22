@@ -1,20 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { useReducer } from 'react';
-
-function Build() {
-    const [checked, toggle] = useReducer(checked => !checked, false)
-
-    return (
-        <>
-            <input type="checkbox" value={checked} onChange={toggle} />
-            {checked ? " checked" : " not checked" }
-        </>
-        )
-   }
 
    const Home = () => (
-       <Build />
+       <div>
+           <h1>Home Screen</h1>
+           <p>Start to build rooms and levels here.</p>
+       </div>
 );
 
 export default connect()(Home);
