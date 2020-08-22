@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useReducer } from 'react';
 
 function Build() {
-    const [checked, setChecked] = useState(false)
-    function toggle() {
-        setChecked(checked => !checked);
-    }
+    const [checked, toggle] = useReducer(checked => !checked, false)
 
     return (
         <>
